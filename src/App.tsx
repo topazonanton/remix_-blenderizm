@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Sparkles, 
@@ -30,95 +30,25 @@ import RenderSimulator from './components/RenderSimulator';
 import ContactForm from './components/ContactForm';
 import ProjectDetailsModal from './components/ProjectDetailsModal';
 import ScrollIntro from './components/ScrollIntro';
+import { useTranslation } from './i18n';
 
-const SEO_SERVICES = [
-  {
-    title: "3D-Моделювання в Blender",
-    englishTitle: "Blender 3D Modeling",
-    description: "Професійне створення тривимірних об'єктів будь-якої складності. Чиста топологія, правильна сітка та повна сумісність з ігровими рушіями.",
-    keywords: ["Blender 3D", "розробка моделей", "сітка", "моделювання"],
-    icon: Boxes
-  },
-  {
-    title: "Моделі для 3D-Друку",
-    englishTitle: "3D Printing & STL Preparation",
-    description: "Професійна підготовка та розробка високодеталізованих high-poly моделей для SLA/FDM друку. Створення герметичних (watertight) STL та OBJ файлів.",
-    keywords: ["3D-друк", "STL файли", "high-poly", "прототипування"],
-    icon: Printer
-  },
-  {
-    title: "PBR Текстурування",
-    englishTitle: "PBR Texturing & Materials",
-    description: "Створення реалістичних текстур у Substance Painter. Налаштування детальних процедурних матеріалів (roughness, metalness, normal maps).",
-    keywords: ["текстурування", "Substance Painter", "матеріали", "PBR"],
-    icon: Layers
-  },
-  {
-    title: "Розробка 3D-Моделей",
-    englishTitle: "3D Asset Development",
-    description: "Повний цикл розробки цифрових ассетів для ігор, інтерактивних додатків, реклами та виробництва з нуля під ваші технічні вимоги.",
-    keywords: ["розробка моделей", "3D ассети", "3D-моделі на замовлення", "CGI"],
-    icon: Cpu
-  },
-  {
-    title: "3D на Замовлення",
-    englishTitle: "Custom 3D Orders",
-    description: "Гнучка розробка індивідуальних 3D-проєктів за кресленнями, фотографіями, концептами чи технічними завданнями будь-якої складності.",
-    keywords: ["замовлення", "3D на замовлення", "індивідуальний дизайн", "ТЗ"],
-    icon: Sparkles
-  },
-  {
-    title: "Послуги Фрілансу",
-    englishTitle: "Freelance 3D Services",
-    description: "Надійний фріланс-супровід ваших проєктів. Оперативна комунікація, чітке дотримання дедлайнів та професійний результат на платформах Upwork та Freelancehunt.",
-    keywords: ["фріланс", "3D фрілансер", "замовлення", "віддалено"],
-    icon: Briefcase
-  },
-  {
-    title: "Дизайн та Концептуалізація",
-    englishTitle: "Product Design & Concept Art",
-    description: "Розробка унікального візуального стилю, дизайну продуктів та концепт-арту для фізичного виробництва або цифрової презентації.",
-    keywords: ["дизайн", "концепт-арт", "3D дизайн", "візуальний стиль"],
-    icon: Sliders
-  },
-  {
-    title: "Візуалізація та Рендеринг",
-    englishTitle: "Photorealistic rendering",
-    description: "Створення фотореалістичних зображень (CGI) за допомогою рушія V-Ray. Художнє налаштування освітлення, камер та матеріалів преміум-якості.",
-    keywords: ["візуалізація", "рендеринг", "V-Ray", "фотореалізм", "CGI"],
-    icon: Monitor
-  },
-  {
-    title: "3D Анімація",
-    englishTitle: "3D Motion & Animation",
-    description: "Оживлення ваших ідей: предметна 3D-анімація, обертання моделей (turntable), робота механізмів та динамічні ролики для реклами.",
-    keywords: ["анімація", "3D анімація", "відео", "рух", "презентація"],
-    icon: Play
-  },
-  {
-    title: "Створення Персонажів",
-    englishTitle: "Character Modeling & Sculpting",
-    description: "Професійний 3D-скульптинг та моделювання стилізованих або реалістичних персонажів, істот та ігрових юнітів.",
-    keywords: ["створення персонажів", "3D-скульптури", "персонажі", "ігри"],
-    icon: User
-  },
-  {
-    title: "Архітектурне Моделювання",
-    englishTitle: "Architectural Visuals & Spaces",
-    description: "Детальне тривимірне моделювання будівель, інтер'єрів, виставкових залів та екстер'єрів з точним дотриманням масштабу та пропорцій.",
-    keywords: ["архітектурне моделювання", "інтер'єр", "екстер'єр", "пропорції"],
-    icon: Home
-  },
-  {
-    title: "Low-Poly / High-Poly Моделі",
-    englishTitle: "Polycount Optimization",
-    description: "Створення моделей будь-якої щільності сітки: від деталізованих high-poly для рендерів до оптимізованих low-poly моделей з запеченими картами.",
-    keywords: ["low-poly", "high-poly", "оптимізація", "запікання карт", "ігри"],
-    icon: HardDrive
-  }
-];
+const SEO_SERVICE_DEFINITIONS = [
+  { key: 'modeling', icon: Boxes },
+  { key: 'printing', icon: Printer },
+  { key: 'pbr', icon: Layers },
+  { key: 'assets', icon: Cpu },
+  { key: 'custom', icon: Sparkles },
+  { key: 'freelance', icon: Briefcase },
+  { key: 'design', icon: Sliders },
+  { key: 'rendering', icon: Monitor },
+  { key: 'animation', icon: Play },
+  { key: 'characters', icon: User },
+  { key: 'architecture', icon: Home },
+  { key: 'polycount', icon: HardDrive },
+] as const;
 
 export default function App() {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState('portfolio');
   const [activeCategory, setActiveCategory] = useState<'all' | 'modeling' | 'texturing' | 'rendering'>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -155,9 +85,60 @@ export default function App() {
   }, []);
 
 
-  const filteredProjects = activeCategory === 'all' 
-    ? PROJECTS 
-    : PROJECTS.filter(p => p.category === activeCategory);
+  const localizedProjects = useMemo(() => PROJECTS.map((project) => {
+    const projectTranslations: Record<string, { title: string; description: string }> = {
+      'smart-planter': t.projects.smartPlanter,
+      'tactical-drone': t.projects.tacticalDrone,
+      'headphones': t.projects.headphones,
+      'cutting-mat-files': t.projects.cuttingMatFiles,
+      'studio-art-room': t.projects.studioArtRoom,
+      'industrial-valves': t.projects.industrialValves,
+      'timber-window': t.projects.timberWindow,
+      'sword-model': t.projects.swordModel,
+      'abandoned-hall': t.projects.abandonedHall,
+    };
+    const localizedProject = projectTranslations[project.id];
+
+    return {
+      ...project,
+      title: localizedProject?.title ?? project.title,
+      description: localizedProject?.description ?? project.description,
+    };
+  }), [t]);
+
+  const filteredProjects = activeCategory === 'all'
+    ? localizedProjects
+    : localizedProjects.filter((project: Project) => project.category === activeCategory);
+
+  const workflowSteps = useMemo(() => [
+    { number: '01', title: t.workflow.blockout.title, description: t.workflow.blockout.description },
+    { number: '02', title: t.workflow.sculpting.title, description: t.workflow.sculpting.description },
+    { number: '03', title: t.workflow.retopology.title, description: t.workflow.retopology.description },
+    { number: '04', title: t.workflow.baking.title, description: t.workflow.baking.description },
+    { number: '05', title: t.workflow.udim.title, description: t.workflow.udim.description },
+    { number: '06', title: t.workflow.rendering.title, description: t.workflow.rendering.description },
+  ], [t]);
+
+  const skillCards = useMemo(() => [
+    { key: 'blenderModeling', level: 95, category: 'software', iconName: 'Cuboid', details: t.specs.blenderModeling.details },
+    { key: 'substancePainter', level: 90, category: 'software', iconName: 'Layers', details: t.specs.substancePainter.details },
+    { key: 'vRay', level: 88, category: 'software', iconName: 'Eye', details: t.specs.vRay.details },
+    { key: 'photoshop', level: 85, category: 'software', iconName: 'Cpu', details: t.specs.photoshop.details },
+    { key: 'inkscape', level: 85, category: 'software', iconName: 'Layers', details: t.specs.inkscape.details },
+    { key: 'illustrator', level: 88, category: 'software', iconName: 'Layers', details: t.specs.illustrator.details },
+    { key: 'vsCode', level: 90, category: 'software', iconName: 'Cpu', details: t.specs.vsCode.details },
+    { key: 'fSpy', level: 92, category: 'software', iconName: 'Eye', details: t.specs.fSpy.details },
+    { key: 'cad', level: 84, category: 'software', iconName: 'Cuboid', details: t.specs.cad.details },
+    { key: 'bambu', level: 94, category: 'software', iconName: 'HardDrive', details: t.specs.bambu.details },
+  ], [t]);
+
+  const seoServices = useMemo(() => SEO_SERVICE_DEFINITIONS.map((service) => ({
+    ...service,
+    title: t.services[service.key as keyof typeof t.services].title,
+    subTitle: t.services[service.key as keyof typeof t.services].subTitle,
+    description: t.services[service.key as keyof typeof t.services].description,
+    keywords: t.services[service.key as keyof typeof t.services].keywords,
+  })), [t]);
 
   return (
 <div className="bg-background text-on-surface font-sans antialiased selection:bg-industrial-orange selection:text-white overflow-x-hidden relative">
@@ -213,8 +194,8 @@ export default function App() {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-printer-green"></span>
               </span>
               <div>
-                <span className="font-mono text-[10px] text-printer-green uppercase tracking-widest block font-bold">Artist Status</span>
-                <span className="font-sans text-sm font-black text-white">Available for Projects</span>
+                <span className="font-mono text-[10px] text-printer-green uppercase tracking-widest block font-bold">{t.common.artistStatus}</span>
+                <span className="font-sans text-sm font-black text-white">{t.common.availableForProjects}</span>
               </div>
             </motion.div>
 
@@ -225,8 +206,8 @@ export default function App() {
               className="glass-panel p-4 rounded-xl pointer-events-auto shadow-2xl border border-white/15 max-w-xs flex gap-3.5 items-center md:text-right backdrop-blur-md"
             >
               <div className="md:order-1 order-2">
-                <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest block font-bold">Location Spec</span>
-                <span className="font-sans text-sm font-black text-white">Remote / Global CGI</span>
+                <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest block font-bold">{t.common.locationSpec}</span>
+                <span className="font-sans text-sm font-black text-white">{t.common.locationValue}</span>
               </div>
               <div className="p-2 bg-white/5 border border-white/10 rounded-lg md:order-2 order-1">
                 <MapPin className="w-4 h-4 text-industrial-orange" />
@@ -243,14 +224,14 @@ export default function App() {
               className="pointer-events-auto max-w-2xl"
             >
               <h1 className="font-sans font-black text-5xl md:text-7xl text-foreground mb-3 tracking-tight drop-shadow-2xl leading-tight">
-                Precision in <br />
-                Every <span className="text-industrial-orange">Polygon</span>
+                {t.hero.headlinePart1} <br />
+                {t.hero.headlinePart2} <span className="text-industrial-orange">{t.hero.headlineAccent}</span>
               </h1>
               <p className="text-xs md:text-sm text-on-surface-variant/90 max-w-lg mb-5 leading-relaxed font-sans">
-                Професійне <span className="text-white font-semibold">3D-моделювання на замовлення</span>, фріланс, візуалізація, текстурування, анімація та розробка low-poly й high-poly моделей у Blender для 3D-друку, ігор та дизайну.
+                {t.hero.description}
               </p>
               <div className="flex flex-wrap gap-2">
-                {['Blender 3D', '3D-друк', 'Текстурування', 'Візуалізація', 'Анімація', 'Low-Poly', 'High-Poly'].map((tag) => (
+                {t.hero.tags.map((tag) => (
                   <span 
                     key={tag} 
                     className="font-mono text-[10px] md:text-xs text-white bg-black/60 border border-white/10 px-3 py-1 rounded-full backdrop-blur-sm shadow-md"
@@ -267,7 +248,7 @@ export default function App() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-industrial-orange px-5 py-3 text-sm font-semibold text-black transition hover:bg-orange-500"
                 >
-                  Hire on Upwork
+                  {t.hero.upworkCta}
                 </a>
                 <a
                   href="https://freelancehunt.com/freelancer/topazonanton.html"
@@ -275,7 +256,7 @@ export default function App() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
-                  Hire on FreelanceHunt
+                  {t.hero.fhCta}
                 </a>
               </div>
             </motion.div>
@@ -292,7 +273,7 @@ export default function App() {
               className="pointer-events-auto flex flex-col items-end gap-3.5 cursor-pointer hover:scale-105 transition-transform"
             >
               <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">
-                Scroll to Explore
+                {t.common.scrollToExplore}
               </span>
               <div className="w-[1.5px] h-16 bg-gradient-to-b from-industrial-orange to-transparent animate-pulse" />
             </motion.div>
@@ -311,11 +292,11 @@ export default function App() {
           >
             <Sparkles className="w-3.5 h-3.5 text-industrial-orange animate-spin" />
             <span className="font-mono text-[10px] text-industrial-orange uppercase tracking-widest font-bold">
-              Engineering Reality
+              {t.motto.badge}
             </span>
           </motion.div>
           <p className="font-sans text-xl md:text-2xl text-on-surface leading-relaxed font-light">
-            Merging intense artistic vision with robust mechanical topology to prepare 3D models and rendering assets that define digital products.
+            {t.motto.text}
           </p>
         </div>
       </section>
@@ -325,20 +306,20 @@ export default function App() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
           <div>
             <span className="font-mono text-xs text-industrial-orange uppercase tracking-widest font-bold">
-              PROJECT REPOSITORY
+              {t.portfolio.sectionLabel}
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-white font-sans mt-1">
-              High-Fidelity Assets
+              {t.portfolio.title}
             </h2>
           </div>
 
           {/* Filtering Tabs */}
           <div className="flex flex-wrap gap-2 font-mono text-xs">
             {([
-              { id: 'all', label: 'ALL WORK' },
-              { id: 'modeling', label: '3D MODELING' },
-              { id: 'texturing', label: 'PBR TEXTURING' },
-              { id: 'rendering', label: 'CGI RENDERING' }
+              { id: 'all', label: t.portfolio.categories.all },
+              { id: 'modeling', label: t.portfolio.categories.modeling },
+              { id: 'texturing', label: t.portfolio.categories.texturing },
+              { id: 'rendering', label: t.portfolio.categories.rendering }
             ] as const).map((tab) => (
               <button
                 key={tab.id}
@@ -375,7 +356,7 @@ export default function App() {
                 }}
                 role="button"
                 tabIndex={0}
-                aria-label={`View details for ${project.title}`}
+                aria-label={t.portfolio.viewDetails.replace('{{title}}', project.title)}
                 className="group relative h-80 rounded-2xl overflow-hidden border border-white/10 bg-surface-card cursor-pointer shadow-xl hover:border-white/20 hover:shadow-2xl transition-all duration-300"
               >
                 {/* Image */}
@@ -411,10 +392,10 @@ export default function App() {
                     {/* Tiny stats info */}
                     <div className="flex gap-4 mt-3 pt-3 border-t border-white/5 font-mono text-[9px] text-on-surface-variant/70">
                       {project.specs.triangles && (
-                        <span>TRIS: {project.specs.triangles.split(' ')[0]}</span>
+                        <span>{t.portfolio.stats.tris}: {project.specs.triangles.split(' ')[0]}</span>
                       )}
                       {project.specs.textures && (
-                        <span>MAPS: {project.specs.textures}</span>
+                        <span>{t.portfolio.stats.maps}: {project.specs.textures}</span>
                       )}
                     </div>
                   </div>
@@ -438,21 +419,21 @@ export default function App() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/5 bg-white/[0.02] w-fit">
               <Boxes className="w-3.5 h-3.5 text-industrial-orange" />
               <span className="font-mono text-[10px] text-industrial-orange uppercase tracking-widest font-bold">
-                EXPERTISE
+                {t.processSection.label}
               </span>
             </div>
 
             <h2 className="font-sans text-4xl md:text-5xl font-black text-foreground tracking-tight leading-none">
-              Blender – <br />
-              <span className="text-industrial-orange">3D Modeling.</span>
+              {t.processSection.title} <br />
+              <span className="text-industrial-orange">{t.processSection.titleAccent}</span>
             </h2>
 
             <p className="text-base text-on-surface-variant leading-relaxed max-w-xl">
-              I create realistic 3D models of products, characters, and environments for games, animations, and visualizations. My Blender3D workflow ensures clean geometry, precise detailing, and optimized assets tailored to your project's needs. Specializations include Concept Design, 3D Animation, and Printable File preparation for STL and 3D Printing.
+              {t.processSection.description}
             </p>
 
             <div className="flex flex-wrap gap-2 font-mono text-xs">
-              {['Clean Topology', 'Asset Optimization', '3D Printing'].map((tag) => (
+              {t.processSection.tags.map((tag) => (
                 <span key={tag} className="px-3.5 py-1.5 bg-white/[0.03] rounded-lg text-on-surface border border-white/5">
                   {tag}
                 </span>
@@ -466,10 +447,10 @@ export default function App() {
             <CompareSlider 
               leftImage={PROJECTS[1].imageUrl}
               rightImage={PROJECTS[1].wireframeUrl || PROJECTS[1].imageUrl}
-              leftLabel="Textured render"
-              rightLabel="Blender Solid View"
-              title="FPV Drone Sub-Assembly"
-              subtitle="Inspect optimized hard-surface subdivision topology and mechanical joint flow"
+              leftLabel={t.processSection.compare.leftLabel}
+              rightLabel={t.processSection.compare.rightLabel}
+              title={t.processSection.compare.title}
+              subtitle={t.processSection.compare.subtitle}
               isBlenderViewport={true}
             />
           </div>
@@ -489,20 +470,20 @@ export default function App() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/5 bg-white/[0.02] w-fit">
               <Sparkles className="w-3.5 h-3.5 text-tertiary-accent" />
               <span className="font-mono text-[10px] text-tertiary-accent uppercase tracking-widest font-bold">
-                VISUALIZATION
+                {t.specsSection.label}
               </span>
             </div>
 
             <h2 className="font-sans text-4xl md:text-5xl font-black text-foreground tracking-tight leading-none">
-              V-Ray – <span className="text-tertiary-accent">Rendering.</span>
+              {t.specsSection.title} <span className="text-tertiary-accent">{t.specsSection.titleAccent}</span>
             </h2>
 
             <p className="text-base text-on-surface-variant leading-relaxed">
-              With V-Ray integrated into Blender, I deliver high-quality 3D Rendering featuring advanced Lighting and Visualization. These photorealistic visuals are perfect for 3D Product Rendering, marketing, presentations, and production.
+              {t.specsSection.description}
             </p>
 
             <div className="flex flex-wrap justify-center gap-2 font-mono text-xs">
-              {['Photorealism', 'Advanced Lighting', 'Product Rendering'].map((tag) => (
+              {t.specsSection.tags.map((tag) => (
                 <span key={tag} className="px-3.5 py-1.5 bg-white/[0.03] rounded-lg text-on-surface border border-white/5">
                   {tag}
                 </span>
@@ -530,10 +511,10 @@ export default function App() {
           {/* Header block */}
           <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-3">
             <h2 className="font-sans text-4xl md:text-5xl font-black text-foreground tracking-tight">
-              Material Mastery &amp; Pixel Precision
+              {t.studioSection.title}
             </h2>
             <p className="text-base text-on-surface-variant leading-relaxed">
-              Specializing in high-fidelity Substance Painter workflows and meticulous Adobe Photoshop post-processing to bring raw meshes to photorealistic life.
+              {t.studioSection.description}
             </p>
           </div>
 
@@ -546,20 +527,20 @@ export default function App() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/5 bg-white/[0.02] w-fit">
                 <Sliders className="w-3.5 h-3.5 text-industrial-orange" />
                 <span className="font-mono text-[10px] text-industrial-orange uppercase tracking-widest font-bold">
-                  POST-PROCESSING
+                  {t.studioSection.postProcessing.label}
                 </span>
               </div>
 
               <h3 className="text-2xl md:text-3xl font-black text-white font-sans tracking-tight">
-                Adobe Photoshop Composition
+                {t.studioSection.postProcessing.title}
               </h3>
 
               <p className="text-sm text-on-surface-variant leading-relaxed">
-                Elevating raw renders to cinematic final images through rigorous post-processing, color grading, and compositing techniques.
+                {t.studioSection.postProcessing.description}
               </p>
 
               <div className="flex flex-wrap gap-2.5 font-mono text-xs">
-                {['COMPOSITING', 'COLOR GRADING', 'RETOUCHING'].map((item) => (
+                {t.studioSection.postProcessing.tags.map((item) => (
                   <span 
                     key={item} 
                     className="border border-white/15 px-3 py-1.5 rounded-lg text-on-surface bg-white/[0.01]"
@@ -587,15 +568,15 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="font-mono text-xs text-industrial-orange uppercase tracking-widest font-bold">
-              SOFTWARE SUITE & SKILLSET
+              {t.skillsSection.label}
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-white font-sans mt-1">
-              Software Stack & Skill Levels
+              {t.skillsSection.title}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SPECS.map((item, index) => {
+            {skillCards.map((item, index) => {
               const isHardware = item.category === 'hardware';
               return (
                 <div 
@@ -611,11 +592,11 @@ export default function App() {
                       }`}>
                         {item.category.toUpperCase()}
                       </span>
-                      <span className="font-mono text-xs text-white/50">LEVEL_0{index + 1}</span>
+                      <span className="font-mono text-xs text-white/50">{t.skillsSection.level}{index + 1}</span>
                     </div>
 
                     <h4 className="font-sans font-bold text-lg text-white">
-                      {item.name}
+                      {item.key === 'blenderModeling' ? t.specs.blenderModeling.name : item.key === 'substancePainter' ? t.specs.substancePainter.name : item.key === 'vRay' ? t.specs.vRay.name : item.key === 'photoshop' ? t.specs.photoshop.name : item.key === 'inkscape' ? t.specs.inkscape.name : item.key === 'illustrator' ? t.specs.illustrator.name : item.key === 'vsCode' ? t.specs.vsCode.name : item.key === 'fSpy' ? t.specs.fSpy.name : item.key === 'cad' ? t.specs.cad.name : t.specs.bambu.name}
                     </h4>
 
                     <p className="text-xs text-on-surface-variant mt-2 leading-relaxed">
@@ -644,15 +625,15 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="font-mono text-xs text-industrial-orange uppercase tracking-widest font-bold">
-              PRODUCTION PIPELINE
+              {t.workflowSection.label}
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-white font-sans mt-1">
-              My 3D Workflow Standard
+              {t.workflowSection.title}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PROCESS_STEPS.map((step) => (
+            {workflowSteps.map((step) => (
               <div 
                 key={step.number}
                 className="relative p-6 rounded-2xl bg-white/[0.01] border border-white/5 hover:bg-white/[0.02] transition-colors group"
@@ -678,18 +659,18 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="font-mono text-xs text-industrial-orange uppercase tracking-widest font-bold">
-              ПОСЛУГИ ТА 3D-МОДЕЛЮВАННЯ НА ЗАМОВЛЕННЯ
+              {t.servicesSection.label}
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white font-sans mt-2 tracking-tight">
-              Спеціалізація &amp; <span className="text-industrial-orange">3D Послуги</span>
+              {t.servicesSection.title} <span className="text-industrial-orange">{t.servicesSection.titleAccent}</span>
             </h2>
             <p className="text-sm md:text-base text-on-surface-variant mt-4 leading-relaxed">
-              Професійний фріланс-супровід, розробка моделей будь-якої складності в Blender, високоякісне текстурування та реалістична візуалізація. Створіть ідеальний 3D-продукт для вашого проєкту.
+              {t.servicesSection.description}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {SEO_SERVICES.map((service, index) => {
+            {seoServices.map((service, index) => {
               const Icon = service.icon;
               return (
                 <article 
@@ -705,7 +686,7 @@ export default function App() {
                         {service.title}
                       </h3>
                       <p className="font-mono text-[9px] text-on-surface-variant/50 uppercase mt-0.5 tracking-wider">
-                        {service.englishTitle}
+                        {service.subTitle}
                       </p>
                     </div>
                     <p className="text-xs text-on-surface-variant/90 leading-relaxed font-sans">
@@ -746,40 +727,40 @@ export default function App() {
               Blenderizm
             </span>
             <p className="text-on-surface-variant text-xs max-w-xs leading-relaxed">
-              Tailored high-end 3D modeling, texturing, and photorealistic CGI visuals crafted for physical manufacturing, game pipelines, and premium product advertising.
+              {t.footer.description}
             </p>
           </div>
 
           {/* Links Column */}
           <div className="flex flex-col gap-2.5 font-mono text-xs">
-            <h4 className="text-white font-bold tracking-wider mb-2 uppercase">Links</h4>
+            <h4 className="text-white font-bold tracking-wider mb-2 uppercase">{t.footer.linksTitle}</h4>
             <a href="https://www.behance.net/blenderizm" target="_blank" rel="noreferrer" className="text-on-surface-variant hover:text-industrial-orange transition-colors flex items-center gap-1.5">
-              Behance Portfolio <ExternalLink className="w-3 h-3" />
+              {t.nav.behance} <ExternalLink className="w-3 h-3" />
             </a>
-            <a href="https://www.upwork.com/freelancers/~01f5c09465b2df56f2?mp_source=share" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-industrial-orange transition-colors">Upwork Profile</a>
-            <a href="https://freelancehunt.com/freelancer/topazonanton.html" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-industrial-orange transition-colors">Freelancehunt Studio</a>
+            <a href="https://www.upwork.com/freelancers/~01f5c09465b2df56f2?mp_source=share" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-industrial-orange transition-colors">{t.nav.upwork}</a>
+            <a href="https://freelancehunt.com/freelancer/topazonanton.html" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-industrial-orange transition-colors">{t.nav.freelancehunt}</a>
           </div>
 
           {/* Contact Column */}
           <div className="flex flex-col gap-2.5 font-mono text-xs">
-            <h4 className="text-white font-bold tracking-wider mb-2 uppercase">Contact Info</h4>
+            <h4 className="text-white font-bold tracking-wider mb-2 uppercase">{t.footer.contactTitle}</h4>
             <span className="text-on-surface-variant flex items-center gap-2">
               <Mail className="w-4 h-4 text-industrial-orange" />
-              blenderizm@gmail.com
+              {t.footer.email}
             </span>
             <span className="text-on-surface-variant flex items-center gap-2">
               <MapPin className="w-4 h-4 text-industrial-orange" />
-              Studio Based, Global CGI Reach
+              {t.footer.location}
             </span>
           </div>
         </div>
 
         {/* Bottom copyright line */}
         <div className="max-w-7xl mx-auto border-t border-white/5 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-on-surface-variant/70">
-          <p>© 2024 Blenderizm. All rights technical and artistic reserved.</p>
+          <p>{t.footer.copyright}</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-industrial-orange transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-industrial-orange transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-industrial-orange transition-colors">{t.footer.privacy}</a>
+            <a href="#" className="hover:text-industrial-orange transition-colors">{t.footer.terms}</a>
           </div>
         </div>
       </footer>

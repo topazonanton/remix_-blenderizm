@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Mail, Layers, Compass, Cpu, Briefcase } from 'lucide-react';
+import { useTranslation } from '../i18n';
 
 interface HeaderProps {
   onContactClick: () => void;
@@ -8,6 +9,7 @@ interface HeaderProps {
 }
 
 export default function Header({ onContactClick, activeSection, onSectionChange }: HeaderProps) {
+  const { locale, setLocale, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -20,10 +22,10 @@ export default function Header({ onContactClick, activeSection, onSectionChange 
   }, []);
 
   const navItems = [
-    { id: 'portfolio', label: 'Portfolio', icon: Compass, href: 'https://www.behance.net/blenderizm' },
-    { id: 'process', label: 'Process', icon: Layers },
-    { id: 'specs', label: 'Specs', icon: Cpu },
-    { id: 'contact', label: 'Contact', icon: Mail },
+    { id: 'portfolio', label: t.nav.portfolio, icon: Compass, href: 'https://www.behance.net/blenderizm' },
+    { id: 'process', label: t.nav.process, icon: Layers },
+    { id: 'specs', label: t.nav.specs, icon: Cpu },
+    { id: 'contact', label: t.nav.contact, icon: Mail },
   ];
 
   const handleNavClick = (id: string) => {
@@ -95,18 +97,24 @@ export default function Header({ onContactClick, activeSection, onSectionChange 
         {/* CTA button */}
         <div className="flex items-center gap-2.5">
           <button
+            onClick={() => setLocale(locale === 'uk' ? 'en' : 'uk')}
+            className="text-xs font-mono uppercase tracking-[0.2em] text-on-surface-variant border border-white/10 bg-white/[0.03] px-3 py-2 rounded-full hover:text-white transition-colors"
+          >
+            {locale === 'uk' ? 'EN' : 'UA'}
+          </button>
+          <button
             onClick={onContactClick}
             className="bg-industrial-orange text-foreground font-sans text-sm font-bold px-5 py-2 rounded-full hover:bg-primary-accent hover:shadow-[0_0_20px_rgba(204,120,92,0.35)] transition-all duration-300 ease-in-out hover:scale-[1.03] active:scale-95 cursor-pointer flex items-center gap-1.5"
           >
             <Mail className="w-3.5 h-3.5" />
-            Hire Me
+            {t.common.hireMe}
           </button>
 
           {/* Mobile hamburger menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-on-surface hover:text-industrial-orange p-1.5 bg-white/5 rounded-full border border-white/10 cursor-pointer"
-            aria-label="Toggle Menu"
+            aria-label={t.nav.toggleMenu}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -164,7 +172,7 @@ export default function Header({ onContactClick, activeSection, onSectionChange 
               className="mt-8 bg-industrial-orange text-foreground font-sans text-base font-bold py-4 rounded-xl hover:bg-primary-accent transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(204,120,92,0.3)]"
             >
               <Mail className="w-5 h-5" />
-              Get in Touch
+              {t.common.getInTouch}
             </button>
           </div>
         </div>

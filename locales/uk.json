@@ -1,0 +1,388 @@
+{
+  "common": {
+    "siteName": "Blenderizm",
+    "languageSwitcher": "UA | EN",
+    "close": "Закрити",
+    "viewDetails": "Переглянути деталі",
+    "hireMe": "Найняти мене",
+    "getInTouch": "Зв'яжіться",
+    "scrollToExplore": "Прокрутіть для перегляду",
+    "statusAvailable": "Доступний для проєктів",
+    "artistStatus": "Статус художника",
+    "locationSpec": "Локація",
+    "locationValue": "Віддалено / Глобальна CGI",
+    "availableForProjects": "Доступний для проєктів",
+    "bilingualLabel": "UA / EN"
+  },
+  "nav": {
+    "portfolio": "Портфоліо",
+    "process": "Процес",
+    "specs": "Технічні характеристики",
+    "contact": "Контакти",
+    "toggleMenu": "Перемкнути меню",
+    "behance": "Behance Portfolio",
+    "upwork": "Профіль Upwork",
+    "freelancehunt": "Студія Freelancehunt"
+  },
+  "hero": {
+    "headlinePart1": "Точність у",
+    "headlinePart2": "кожному",
+    "headlineAccent": "полігоні",
+    "description": "Професійне 3D-моделювання на замовлення, фріланс, візуалізація, текстурування, анімація та розробка low-poly й high-poly моделей у Blender для 3D-друку, ігор та дизайну.",
+    "tags": ["Blender 3D", "3D-друк", "Текстурування", "Візуалізація", "Анімація", "Low-Poly", "High-Poly"],
+    "upworkCta": "Найняти на Upwork",
+    "fhCta": "Найняти на FreelanceHunt"
+  },
+  "motto": {
+    "badge": "Інженерія реальності",
+    "text": "Поєднуючи художню візію з жорсткою топологією, я підготовлюю 3D-моделі та візуалізації, які задають тон цифровим продуктам."
+  },
+  "portfolio": {
+    "sectionLabel": "РЕПОЗИТОРІЙ ПРОЄКТІВ",
+    "title": "Високоякісні активи",
+    "categories": {
+      "all": "УСІ ПРОЄКТИ",
+      "modeling": "3D МОДЕЛЮВАННЯ",
+      "texturing": "PBR ТЕКСТУРУВАННЯ",
+      "rendering": "CGI ВІЗУАЛІЗАЦІЯ"
+    },
+    "stats": {
+      "tris": "ТРИКУТНИКИ",
+      "maps": "КАРТИ"
+    },
+    "viewDetails": "Переглянути деталі для {{title}}"
+  },
+  "processSection": {
+    "label": "ЕКСПЕРТИЗА",
+    "title": "Blender –",
+    "titleAccent": "3D Моделювання.",
+    "description": "Я створюю реалістичні 3D-моделі продуктів, персонажів і середовищ для ігор, анімації та візуалізацій. Мій робочий процес у Blender забезпечує чисту геометрію, точне деталювання та оптимізовані активи під потреби проєкту. Спеціалізація включає концепт-дизайн, 3D-анімацію та підготовку файлів для STL та 3D-друку.",
+    "tags": ["Чиста топологія", "Оптимізація активів", "3D-друк"],
+    "compare": {
+      "leftLabel": "Текстурований рендер",
+      "rightLabel": "Суцільний вигляд Blender",
+      "title": "Підсистема FPV дрона",
+      "subtitle": "Огляньте оптимізовану топологію твердих поверхонь та потік механічних з'єднань"
+    }
+  },
+  "specsSection": {
+    "label": "ВІЗУАЛІЗАЦІЯ",
+    "title": "V-Ray –",
+    "titleAccent": "Рендеринг.",
+    "description": "З V-Ray у Blender я створюю високоякісні 3D-рендери з розширеним освітленням та візуалізацією. Ці фотореалістичні зображення підходять для 3D-продуктової візуалізації, маркетингу, презентацій і продакшену.",
+    "tags": ["Фотореалізм", "Розширене освітлення", "Продуктова візуалізація"]
+  },
+  "studioSection": {
+    "title": "Майстерність матеріалів та точність пікселів",
+    "description": "Спеціалізуюся на високоточних робочих процесах у Substance Painter і ретельній постобробці у Adobe Photoshop, щоб перетворювати сирові меші на фотореалістичні результати.",
+    "postProcessing": {
+      "label": "ПОСТОБРОБКА",
+      "title": "Композиція в Adobe Photoshop",
+      "description": "Піднімаю сирі рендери до кінематографічних фінальних зображень через ретельну постобробку, кольорокорекцію та композитинг.",
+      "tags": ["КОМПОЗИТИНГ", "КОЛЬОРОКОРЕКЦІЯ", "РЕТУШУВАННЯ"]
+    }
+  },
+  "skillsSection": {
+    "label": "ПАКЕТ ПРОГРАМ ТА НАВИЧКИ",
+    "title": "Пакет програм і рівні навичок",
+    "level": "РІВЕНЬ_0"
+  },
+  "workflowSection": {
+    "label": "ПОТОК ВИРОБНИЦТВА",
+    "title": "Мій стандарт 3D-робочого процесу"
+  },
+  "servicesSection": {
+    "label": "ПОСЛУГИ ТА 3D-МОДЕЛЮВАННЯ НА ЗАМОВЛЕННЯ",
+    "title": "Спеціалізація та",
+    "titleAccent": "3D Послуги",
+    "description": "Професійний фріланс-супровід, розробка моделей будь-якої складності в Blender, високоякісне текстурування та реалістична візуалізація. Створіть ідеальний 3D-продукт для вашого проєкту."
+  },
+  "contact": {
+    "title": "Почати 3D-проєкт",
+    "description": "Готові втілити високодеталізовану геометрію або фотореалістичні рендери в життя? Вкажіть ваші технічні вимоги нижче.",
+    "successTitle": "Запит зареєстровано!",
+    "successDescription": "Ваш запит збережено. Blenderizm відповість з варіантами компоновки та розкладом упродовж 24 годин.",
+    "sendAnother": "Надіслати ще один запит",
+    "closeWindow": "Закрити вікно",
+    "nameLabel": "Ваше ім'я *",
+    "emailLabel": "Електронна адреса *",
+    "projectLabel": "Категорія проєкту",
+    "budgetLabel": "Бюджет",
+    "messageLabel": "Обсяг робіт *",
+    "submit": "Надіслати технічний запит",
+    "projectTypes": {
+      "modeling": "3D-моделювання (водонепроникний STL / квести)",
+      "rendering": "Продуктова CGI / рендеринг",
+      "texturing": "Текстурування та дизайн шарів",
+      "collaboration": "Загальна співпраця"
+    },
+    "budgets": {
+      "under1000": "Менше $1,000",
+      "standard": "$1,000 - $3,000",
+      "detailed": "$3,000 - $8,000",
+      "cinematic": "$8,000+"
+    },
+    "placeholders": {
+      "name": "Антон Топаз",
+      "email": "anton@example.com",
+      "message": "Опишіть розміри моделі, референси, потрібні формати файлів (OBJ, FBX, STL, blend) або роздільну здатність текстур."
+    }
+  },
+  "errors": {
+    "required": "Заповніть усі обов'язкові поля.",
+    "email": "Надайте дійсну електронну адресу."
+  },
+  "footer": {
+    "description": "Високоякісне 3D-моделювання, текстурування та фотореалістична CGI-візуалізація для виробництва, ігрових пайплайнів і преміум-реклами продуктів.",
+    "linksTitle": "Посилання",
+    "contactTitle": "Контакти",
+    "email": "blenderizm@gmail.com",
+    "location": "Студія в Україні, глобальне CGI-довкілля",
+    "copyright": "© 2024 Blenderizm. Усі права захищені.",
+    "privacy": "Політика конфіденційності",
+    "terms": "Умови використання"
+  },
+  "compare": {
+    "resetTooltip": "Скинути позицію",
+    "interactiveInspector": "Інтерактивний інспектор каркасів",
+    "presetWindow": "Пасивне вікно",
+    "presetCorridor": "Коридор CGI",
+    "activeScene": "АКТИВНА СЦЕНА",
+    "exposure": "ЕКСПОЗИЦІЯ",
+    "temperature": "ТЕМПЕРАТУРА",
+    "renderOptics": "Симулятор оптики рендеру",
+    "description": "Налаштуйте рендеринг у браузері. Дивіться, як значення об'єктива впливають на настрій, експозицію та глибину простору.",
+    "exposureSpeed": "Швидкість експозиції",
+    "lowLight": "Низьке освітлення (мрійливо)",
+    "overexposed": "Перевисвітлено",
+    "atmosphericKelvin": "Атмосферний Кельвін",
+    "cold": "Холодно (4500K)",
+    "warm": "Тепло (8500K)",
+    "lensAperture": "Апертура об'єктива (глибина різкості)",
+    "shallowFocus": "Мала глибина різкості",
+    "infiniteFocus": "Нескінченна глибина різкості",
+    "resetCamera": "Скинути параметри камери",
+    "vrayLens": "V-RAY ОБ'ЄКТИВ: f/{{value}}"
+  },
+  "modal": {
+    "closeDetails": "Закрити деталі",
+    "softwarePipeline": "Пайплайн програмного забезпечення",
+    "geometrySpecs": "Технічні характеристики геометрії",
+    "triangleCount": "КІЛЬКІСТЬ ТРИКУТНИКІВ",
+    "verticesCount": "КІЛЬКІСТЬ ВЕРШИН",
+    "textureSets": "Набори текстур",
+    "renderTime": "ЧАС РЕНДЕРУ V-RAY",
+    "closeInspector": "Закрити інспектор"
+  },
+  "material": {
+    "label": "Підсвітка каналів Substance Painter",
+    "title": "Інспектор PBR-текстур",
+    "description": "Професійні активи створюються із шарів фізичних параметрів. Натискайте на кожен шар, щоб дослідити його внесок у мікродеталі.",
+    "scientificContext": "Науковий контекст",
+    "channel": "КАНАЛ: {{name}}",
+    "pipeline": "PBR Shader Pipeline",
+    "mapParameter": "Параметр карти: {{value}}",
+    "pass": "PASS 0"
+  },
+  "software": {
+    "blender": "Blender",
+    "substancePainter": "Substance Painter",
+    "vRay": "V-Ray",
+    "photoshop": "Photoshop",
+    "inkscape": "Inkscape",
+    "illustrator": "Adobe Illustrator",
+    "vsCode": "VS Code",
+    "fSpy": "fSpy Perspective Matching",
+    "cad": "CAD & Fusion 360",
+    "bambu": "Bambu Studio"
+  },
+  "projects": {
+    "smartPlanter": {
+      "title": "Smart Planter Humidifier",
+      "description": "Елегантний розумний домашній пристрій, що поєднує природу з сучасним продукт-дизайном. Містить точну фрезеровану дерев'яну обшивку, двоконтурний моніторинг води та власну геометрію monstera."
+    },
+    "tacticalDrone": {
+      "title": "FPV Tactical Strike Drone",
+      "description": "Повністю реалізований тактичний FPV-квадрокоптер. Побудований із точними механічними карбоновими пластинами, промисловими ремінцями, модульним акумулятором і високодеталізованою геометрією корисного навантаження."
+    },
+    "headphones": {
+      "title": "Навушники JBL Pro Series",
+      "description": "Високодеталізована hard-surface модель навушників студійного референсу. Сформована з акцентом на точні фізичні деталі, шви, ергономіку з пінопластової шкіри та вирівнювання мікробрендингу."
+    },
+    "cuttingMatFiles": {
+      "title": "3D Print STL Files Blenderizm",
+      "description": "Система підготовки watertight STL із високою щільністю потоків ниток, чистою топологією та структурною оптимізацією для бездоганного SLA/FDM 3D-друку."
+    },
+    "studioArtRoom": {
+      "title": "Візуальна виставка та студійний простір",
+      "description": "Архітектурна візуалізація високотехнологічної музейної та студійної кімнати з технічними 3D-фреймами. Використовує кастомні шляхи глобального освітлення та фізичний розподіл світла."
+    },
+    "industrialValves": {
+      "title": "Механізм клапанів Substance",
+      "description": "Текстурування латунних клапанів і мідних трубних з'єднань за допомогою багатоканальних робочих процесів Substance Painter. Демонструє просунуте процедурне старіння, іржу та корозію латунного сплаву."
+    },
+    "timberWindow": {
+      "title": "Подвійно-склопакетний дерев'яний профіль",
+      "description": "Високоякісна продуктова візуалізація дерев'яного профілю. Надзвичайно деталізовані ущільнювачі, показник заломлення скла та зернистість соснової деревини."
+    },
+    "swordModel": {
+      "title": "Obsidian Fire Sword CGI",
+      "description": "Від плоских концептів до фотореалістичних low-poly мешів. Побудовано з використанням точних направляючих Adobe Photoshop і pipeline high-to-low poly у Substance."
+    },
+    "abandonedHall": {
+      "title": "Промислова коридорна зона Backrooms",
+      "description": "Мрійлива та моторошна промислова підвальна візуалізація з об'ємним пилом, старінням бетону, вологими металевими відблисками та сильним контрастом."
+    }
+  },
+  "specs": {
+    "blenderModeling": {
+      "name": "Blender 3D Modeling",
+      "details": "Hard surface CAD-precision modeling, custom geometry shaders, high-poly sculpting, retopology."
+    },
+    "substancePainter": {
+      "name": "Substance Painter",
+      "details": "Procedural material generation, multi-channel micro-surface texturing, custom smart materials."
+    },
+    "vRay": {
+      "name": "V-Ray Rendering",
+      "details": "Global illumination, raytraced reflection/refraction, custom atmospheric fog, interior visualization."
+    },
+    "photoshop": {
+      "name": "Adobe Photoshop",
+      "details": "Cinematic color grading, multipass EXR compositing, post-processing texture weathering."
+    },
+    "inkscape": {
+      "name": "Inkscape",
+      "details": "Vector decal artwork, high-resolution SVG texture patterns, and graphic projection layouts."
+    },
+    "illustrator": {
+      "name": "Adobe Illustrator",
+      "details": "Industry-standard vector design for complex logo layouts, UI dashboards, and decal placement sets."
+    },
+    "vsCode": {
+      "name": "VS Code",
+      "details": "Python automation scripts, customized shader development, and pipeline tooling integrations."
+    },
+    "fSpy": {
+      "name": "fSpy Perspective Matching",
+      "details": "Precise camera angle matching and focal length alignment from perspective reference photography."
+    },
+    "cad": {
+      "name": "CAD & Fusion 360",
+      "details": "Parametric solid-body engineering modeling, watertight joints, and mechanical STL asset export."
+    },
+    "bambu": {
+      "name": "Bambu Studio",
+      "details": "Advanced slicer setup, multi-color physical material assignments, and printable STL file optimization."
+    }
+  },
+  "workflow": {
+    "blockout": {
+      "title": "Блок-аут і пропорції",
+      "description": "Проєктування первинних низькофідельних силуетів для визначення масштабу, ергономічної правильності та композиційних орієнтирів."
+    },
+    "sculpting": {
+      "title": "High-Poly sculpting",
+      "description": "Додавання мікродеталей, м'яких фасок і фізичних зморшок для імітації реальних структур."
+    },
+    "retopology": {
+      "title": "Low-Poly retopology",
+      "description": "Створення ультраефективного quad-flow для максимізації продуктивності ігрових рушіїв без втрати чітких силуетів."
+    },
+    "baking": {
+      "title": "PBR material baking",
+      "description": "Передача нормалей, ambient occlusion і карт кривини з high-poly моделей у low-poly розкладки."
+    },
+    "udim": {
+      "title": "UDIM texturing",
+      "description": "Старіння активу за допомогою процедурних шарів у Substance Painter для впевненого реалістичного виду."
+    },
+    "rendering": {
+      "title": "Кінематографічний CGI рендеринг",
+      "description": "Налаштування фотографічних камер, HDRI-студійного світла, об'ємних атмосфер і фінального композитного кольору."
+    }
+  },
+  "services": {
+    "modeling": {
+      "title": "3D-Моделювання в Blender",
+      "subTitle": "Blender 3D Modeling",
+      "description": "Професійне створення тривимірних об'єктів будь-якої складності. Чиста топологія, правильна сітка та повна сумісність з ігровими рушіями.",
+      "keywords": ["Blender 3D", "розробка моделей", "сітка", "моделювання"]
+    },
+    "printing": {
+      "title": "Моделі для 3D-Друку",
+      "subTitle": "3D Printing & STL Preparation",
+      "description": "Професійна підготовка та розробка високодеталізованих high-poly моделей для SLA/FDM друку. Створення герметичних (watertight) STL та OBJ файлів.",
+      "keywords": ["3D-друк", "STL файли", "high-poly", "прототипування"]
+    },
+    "pbr": {
+      "title": "PBR Текстурування",
+      "subTitle": "PBR Texturing & Materials",
+      "description": "Створення реалістичних текстур у Substance Painter. Налаштування детальних процедурних матеріалів (roughness, metalness, normal maps).",
+      "keywords": ["текстурування", "Substance Painter", "матеріали", "PBR"]
+    },
+    "assets": {
+      "title": "Розробка 3D-Моделей",
+      "subTitle": "3D Asset Development",
+      "description": "Повний цикл розробки цифрових ассетів для ігор, інтерактивних додатків, реклами та виробництва з нуля під ваші технічні вимоги.",
+      "keywords": ["розробка моделей", "3D ассети", "3D-моделі на замовлення", "CGI"]
+    },
+    "custom": {
+      "title": "3D на Замовлення",
+      "subTitle": "Custom 3D Orders",
+      "description": "Гнучка розробка індивідуальних 3D-проєктів за кресленнями, фотографіями, концептами чи технічними завданнями будь-якої складності.",
+      "keywords": ["замовлення", "3D на замовлення", "індивідуальний дизайн", "ТЗ"]
+    },
+    "freelance": {
+      "title": "Послуги Фрілансу",
+      "subTitle": "Freelance 3D Services",
+      "description": "Надійний фріланс-супровід ваших проєктів. Оперативна комунікація, чітке дотримання дедлайнів та професійний результат на платформах Upwork та Freelancehunt.",
+      "keywords": ["фріланс", "3D фрілансер", "замовлення", "віддалено"]
+    },
+    "design": {
+      "title": "Дизайн та Концептуалізація",
+      "subTitle": "Product Design & Concept Art",
+      "description": "Розробка унікального візуального стилю, дизайну продуктів та концепт-арту для фізичного виробництва або цифрової презентації.",
+      "keywords": ["дизайн", "концепт-арт", "3D дизайн", "візуальний стиль"]
+    },
+    "rendering": {
+      "title": "Візуалізація та Рендеринг",
+      "subTitle": "Photorealistic rendering",
+      "description": "Створення фотореалістичних зображень (CGI) за допомогою рушія V-Ray. Художнє налаштування освітлення, камер та матеріалів преміум-якості.",
+      "keywords": ["візуалізація", "рендеринг", "V-Ray", "фотореалізм", "CGI"]
+    },
+    "animation": {
+      "title": "3D Анімація",
+      "subTitle": "3D Motion & Animation",
+      "description": "Оживлення ваших ідей: предметна 3D-анімація, обертання моделей (turntable), робота механізмів та динамічні ролики для реклами.",
+      "keywords": ["анімація", "3D анімація", "відео", "рух", "презентація"]
+    },
+    "characters": {
+      "title": "Створення Персонажів",
+      "subTitle": "Character Modeling & Sculpting",
+      "description": "Професійний 3D-скульптинг та моделювання стилізованих або реалістичних персонажів, істот та ігрових юнітів.",
+      "keywords": ["створення персонажів", "3D-скульптури", "персонажі", "ігри"]
+    },
+    "architecture": {
+      "title": "Архітектурне Моделювання",
+      "subTitle": "Architectural Visuals & Spaces",
+      "description": "Детальне тривимірне моделювання будівель, інтер'єрів, виставкових залів та екстер'єрів з точним дотриманням масштабу та пропорцій.",
+      "keywords": ["архітектурне моделювання", "інтер'єр", "екстер'єр", "пропорції"]
+    },
+    "polycount": {
+      "title": "Low-Poly / High-Poly Моделі",
+      "subTitle": "Polycount Optimization",
+      "description": "Створення моделей будь-якої щільності сітки: від деталізованих high-poly для рендерів до оптимізованих low-poly моделей з запеченими картами.",
+      "keywords": ["low-poly", "high-poly", "оптимізація", "запікання карт", "ігри"]
+    }
+  },
+  "meta": {
+    "title": "Blenderizm — 3D Моделювання, Візуалізація, 3D Друк та Анімація в Blender | Портфоліо 3D Artist",
+    "description": "Blenderizm — професійне 3D-моделювання, PBR-текстурування, візуалізація, анімація та STL-готові активи для фріланс-проєктів, ігор, дизайну та 3D-друку.",
+    "keywords": "Blenderizm, Blender 3D, 3D моделювання, 3D друк, PBR текстурування, CGI, V-Ray рендеринг, фріланс 3D художник, 3D візуалізація, анімація",
+    "ogTitle": "Blenderizm — 3D Моделювання, Візуалізація, 3D Друк та Анімація в Blender",
+    "ogDescription": "Blenderizm — професійне 3D-моделювання, PBR-текстурування, візуалізація, анімація та STL-готові активи для фріланс-проєктів, ігор, дизайну та 3D-друку.",
+    "twitterTitle": "Blenderizm — 3D Моделювання, Візуалізація, 3D Друк та Анімація в Blender",
+    "twitterDescription": "Blenderizm — професійне 3D-моделювання, PBR-текстурування, візуалізація, анімація та STL-готові активи для фріланс-проєктів, ігор, дизайну та 3D-друку."
+  }
+}

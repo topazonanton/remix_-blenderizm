@@ -1,0 +1,388 @@
+{
+  "common": {
+    "siteName": "Blenderizm",
+    "languageSwitcher": "UA | EN",
+    "close": "Close",
+    "viewDetails": "View details",
+    "hireMe": "Hire me",
+    "getInTouch": "Get in touch",
+    "scrollToExplore": "Scroll to explore",
+    "statusAvailable": "Available for projects",
+    "artistStatus": "Artist status",
+    "locationSpec": "Location spec",
+    "locationValue": "Remote / Global CGI",
+    "availableForProjects": "Available for projects",
+    "bilingualLabel": "UA / EN"
+  },
+  "nav": {
+    "portfolio": "Portfolio",
+    "process": "Process",
+    "specs": "Specs",
+    "contact": "Contact",
+    "toggleMenu": "Toggle menu",
+    "behance": "Behance Portfolio",
+    "upwork": "Upwork Profile",
+    "freelancehunt": "Freelancehunt Studio"
+  },
+  "hero": {
+    "headlinePart1": "Precision in",
+    "headlinePart2": "every",
+    "headlineAccent": "polygon",
+    "description": "Professional custom 3D modeling, freelance services, visualization, texturing, animation, and low-poly/high-poly model development in Blender for 3D printing, games, and design.",
+    "tags": ["Blender 3D", "3D Printing", "Texturing", "Visualization", "Animation", "Low-Poly", "High-Poly"],
+    "upworkCta": "Hire on Upwork",
+    "fhCta": "Hire on FreelanceHunt"
+  },
+  "motto": {
+    "badge": "Engineering reality",
+    "text": "Merging intense artistic vision with robust mechanical topology to prepare 3D models and rendering assets that define digital products."
+  },
+  "portfolio": {
+    "sectionLabel": "PROJECT REPOSITORY",
+    "title": "High-fidelity assets",
+    "categories": {
+      "all": "ALL WORK",
+      "modeling": "3D MODELING",
+      "texturing": "PBR TEXTURING",
+      "rendering": "CGI RENDERING"
+    },
+    "stats": {
+      "tris": "TRIS",
+      "maps": "MAPS"
+    },
+    "viewDetails": "View details for {{title}}"
+  },
+  "processSection": {
+    "label": "EXPERTISE",
+    "title": "Blender –",
+    "titleAccent": "3D Modeling.",
+    "description": "I create realistic 3D models of products, characters, and environments for games, animation, and visualization. My Blender workflow ensures clean geometry, precise detailing, and optimized assets tailored to your project's needs. Specializations include concept design, 3D animation, and printable file preparation for STL and 3D printing.",
+    "tags": ["Clean topology", "Asset optimization", "3D printing"],
+    "compare": {
+      "leftLabel": "Textured render",
+      "rightLabel": "Blender solid view",
+      "title": "FPV drone sub-assembly",
+      "subtitle": "Inspect optimized hard-surface subdivision topology and mechanical joint flow"
+    }
+  },
+  "specsSection": {
+    "label": "VISUALIZATION",
+    "title": "V-Ray –",
+    "titleAccent": "Rendering.",
+    "description": "With V-Ray integrated into Blender, I deliver high-quality 3D rendering featuring advanced lighting and visualization. These photorealistic visuals are perfect for product rendering, marketing, presentations, and production.",
+    "tags": ["Photorealism", "Advanced lighting", "Product rendering"]
+  },
+  "studioSection": {
+    "title": "Material mastery and pixel precision",
+    "description": "Specializing in high-fidelity Substance Painter workflows and meticulous Adobe Photoshop post-processing to bring raw meshes to photorealistic life.",
+    "postProcessing": {
+      "label": "POST-PROCESSING",
+      "title": "Adobe Photoshop composition",
+      "description": "Elevating raw renders to cinematic final images through rigorous post-processing, color grading, and compositing techniques.",
+      "tags": ["COMPOSITING", "COLOR GRADING", "RETOUCHING"]
+    }
+  },
+  "skillsSection": {
+    "label": "SOFTWARE SUITE & SKILLSET",
+    "title": "Software stack & skill levels",
+    "level": "LEVEL_0"
+  },
+  "workflowSection": {
+    "label": "PRODUCTION PIPELINE",
+    "title": "My 3D workflow standard"
+  },
+  "servicesSection": {
+    "label": "3D SERVICES & CUSTOM MODELING",
+    "title": "Specialization &",
+    "titleAccent": "3D Services",
+    "description": "Professional freelance support, development of models of any complexity in Blender, high-quality texturing, and realistic visualization. Build the perfect 3D product for your project."
+  },
+  "contact": {
+    "title": "Launch a 3D project",
+    "description": "Ready to bring high-fidelity geometry or photorealistic renders to life? Define your specifications below.",
+    "successTitle": "Inquiry logged!",
+    "successDescription": "Your technical project request has been stored. Blenderizm will respond with wireframes and scheduling specs inside 24 hours.",
+    "sendAnother": "Send another request",
+    "closeWindow": "Close window",
+    "nameLabel": "Your name *",
+    "emailLabel": "Email address *",
+    "projectLabel": "Project category",
+    "budgetLabel": "Allocated budget",
+    "messageLabel": "Scope of work *",
+    "submit": "Submit technical inquiry",
+    "projectTypes": {
+      "modeling": "3D Modeling (watertight STL / quads)",
+      "rendering": "Product CGI / rendering",
+      "texturing": "Texturing & layer design",
+      "collaboration": "General collaboration"
+    },
+    "budgets": {
+      "under1000": "Under $1,000",
+      "standard": "$1,000 - $3,000",
+      "detailed": "$3,000 - $8,000",
+      "cinematic": "$8,000+"
+    },
+    "placeholders": {
+      "name": "Tony Stark",
+      "email": "tony@starkindustries.com",
+      "message": "Describe model dimensions, reference images, required file outputs (OBJ, FBX, STL, blend), or texture resolutions."
+    }
+  },
+  "errors": {
+    "required": "Please fill out all required fields.",
+    "email": "Please provide a valid email address."
+  },
+  "footer": {
+    "description": "Tailored high-end 3D modeling, texturing, and photorealistic CGI visuals crafted for physical manufacturing, game pipelines, and premium product advertising.",
+    "linksTitle": "Links",
+    "contactTitle": "Contact info",
+    "email": "blenderizm@gmail.com",
+    "location": "Studio based, global CGI reach",
+    "copyright": "© 2024 Blenderizm. All rights technical and artistic reserved.",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service"
+  },
+  "compare": {
+    "resetTooltip": "Reset position",
+    "interactiveInspector": "Interactive wireframe inspector",
+    "presetWindow": "Passive window",
+    "presetCorridor": "Corridor CGI",
+    "activeScene": "ACTIVE SCENE",
+    "exposure": "EXPOSURE",
+    "temperature": "TEMP",
+    "renderOptics": "Render optics simulator",
+    "description": "Adjust real-time physical rendering attributes in the browser. Witness how camera lens values determine mood, atmospheric exposure, and spatial depth.",
+    "exposureSpeed": "Exposure speed",
+    "lowLight": "Low light (moody)",
+    "overexposed": "Overexposed",
+    "atmosphericKelvin": "Atmospheric Kelvin",
+    "cold": "Cold (4500K)",
+    "warm": "Warm (8500K)",
+    "lensAperture": "Lens aperture (depth of field)",
+    "shallowFocus": "Shallow focus",
+    "infiniteFocus": "Infinite focus",
+    "resetCamera": "Reset camera defaults",
+    "vrayLens": "V-RAY LENS: f/{{value}}"
+  },
+  "modal": {
+    "closeDetails": "Close details",
+    "softwarePipeline": "Software pipeline",
+    "geometrySpecs": "Geometry specs & stats",
+    "triangleCount": "TRIANGLE COUNT",
+    "verticesCount": "VERTICES COUNT",
+    "textureSets": "TEXTURE SETS",
+    "renderTime": "V-RAY RENDER TIME",
+    "closeInspector": "Close inspector screen"
+  },
+  "material": {
+    "label": "Substance Painter channels",
+    "title": "PBR texture inspector",
+    "description": "Professional assets are built from stacked physical parameters. Click each layer to inspect its specific micro-detail contributions.",
+    "scientificContext": "Scientific context",
+    "channel": "CHANNEL: {{name}}",
+    "pipeline": "PBR shader pipeline",
+    "mapParameter": "Map parameter: {{value}}",
+    "pass": "PASS 0"
+  },
+  "software": {
+    "blender": "Blender",
+    "substancePainter": "Substance Painter",
+    "vRay": "V-Ray",
+    "photoshop": "Photoshop",
+    "inkscape": "Inkscape",
+    "illustrator": "Adobe Illustrator",
+    "vsCode": "VS Code",
+    "fSpy": "fSpy Perspective Matching",
+    "cad": "CAD & Fusion 360",
+    "bambu": "Bambu Studio"
+  },
+  "projects": {
+    "smartPlanter": {
+      "title": "Smart Planter Humidifier",
+      "description": "An elegant smart home device merging nature with modern product design. Features precise fluted oak siding, dual-well water monitoring, and custom-designed monstera plant geometry."
+    },
+    "tacticalDrone": {
+      "title": "FPV Tactical Strike Drone",
+      "description": "A fully realized tactical FPV quadcopter. Built with accurate mechanical carbon-fiber plates, industrial straps, a high-capacity modular battery pack, and high-fidelity projectile payload geometry."
+    },
+    "headphones": {
+      "title": "JBL Pro Series Headphones",
+      "description": "High-fidelity hard-surface model of studio reference headphones. Sculpted with focus on precise physical details, stitches, foam leather ergonomics, and micro-branding alignment."
+    },
+    "cuttingMatFiles": {
+      "title": "Blenderizm 3D Print STL Files",
+      "description": "Watertight STL preparing system featuring high-density thread modeling, clean topology, and structural optimization for flawless SLA/FDM 3D printing results."
+    },
+    "studioArtRoom": {
+      "title": "Visual exhibition & studio space",
+      "description": "An architectural visualization of a high-tech museum/studio room displaying technical 3D frames. Utilizes customized global illumination paths and physical light distribution."
+    },
+    "industrialValves": {
+      "title": "Substance valve mechanism",
+      "description": "Brass valves and copper pipe joints texturing using multi-channel Substance Painter workflows. Showcases advanced procedural weathering, rust buildup, and brass alloy corrosion."
+    },
+    "timberWindow": {
+      "title": "Double-glazed wooden profile",
+      "description": "High-end product visual rendering of wooden profile architecture. Extreme details of gaskets, triple-pane glass index of refraction, and structural pine wood grains."
+    },
+    "swordModel": {
+      "title": "Obsidian Fire Sword CGI",
+      "description": "From flat design concepts to photorealistic low-poly meshes. Built using precise Adobe Photoshop layout guides and high-to-low poly Substance backing pipelines."
+    },
+    "abandonedHall": {
+      "title": "The industrial backrooms corridor",
+      "description": "Moody and eerie industrial basement rendering with volumetric dust particles, concrete aging, wet metallic reflections, and strong volumetric contrast."
+    }
+  },
+  "specs": {
+    "blenderModeling": {
+      "name": "Blender 3D Modeling",
+      "details": "Hard surface CAD-precision modeling, custom geometry shaders, high-poly sculpting, retopology."
+    },
+    "substancePainter": {
+      "name": "Substance Painter",
+      "details": "Procedural material generation, multi-channel micro-surface texturing, custom smart materials."
+    },
+    "vRay": {
+      "name": "V-Ray Rendering",
+      "details": "Global illumination, raytraced reflection/refraction, custom atmospheric fog, interior visualization."
+    },
+    "photoshop": {
+      "name": "Adobe Photoshop",
+      "details": "Cinematic color grading, multipass EXR compositing, post-processing texture weathering."
+    },
+    "inkscape": {
+      "name": "Inkscape",
+      "details": "Vector decal artwork, high-resolution SVG texture patterns, and graphic projection layouts."
+    },
+    "illustrator": {
+      "name": "Adobe Illustrator",
+      "details": "Industry-standard vector design for complex logo layouts, UI dashboards, and decal placement sets."
+    },
+    "vsCode": {
+      "name": "VS Code",
+      "details": "Python automation scripts, customized shader development, and pipeline tooling integrations."
+    },
+    "fSpy": {
+      "name": "fSpy Perspective Matching",
+      "details": "Precise camera angle matching and focal length alignment from perspective reference photography."
+    },
+    "cad": {
+      "name": "CAD & Fusion 360",
+      "details": "Parametric solid-body engineering modeling, watertight joints, and mechanical STL asset export."
+    },
+    "bambu": {
+      "name": "Bambu Studio",
+      "details": "Advanced slicer setup, multi-color physical material assignments, and printable STL file optimization."
+    }
+  },
+  "workflow": {
+    "blockout": {
+      "title": "Blockout & proportions",
+      "description": "Designing initial low-fidelity silhouettes to establish scale, ergonomic correctness, and composition guidelines."
+    },
+    "sculpting": {
+      "title": "High-poly sculpting",
+      "description": "Injecting micro-details, soft bevels, and physical creases into the model to simulate real-world physical structures."
+    },
+    "retopology": {
+      "title": "Low-poly retopology",
+      "description": "Creating ultra-efficient quad flow to maximize game-engine performance while retaining sharp, beautiful silhouettes."
+    },
+    "baking": {
+      "title": "PBR material baking",
+      "description": "Transferring lighting normals, ambient occlusion, and curvature maps from high-poly models into low-poly layouts."
+    },
+    "udim": {
+      "title": "UDIM texturing",
+      "description": "Weathering the asset with customized procedural layers in Substance Painter to capture convincing real-world age."
+    },
+    "rendering": {
+      "title": "Cinematic CGI rendering",
+      "description": "Setting up photographic cameras, HDRI studio lights, volumetric atmospheres, and final composite grading."
+    }
+  },
+  "services": {
+    "modeling": {
+      "title": "3D Modeling in Blender",
+      "subTitle": "Blender 3D Modeling",
+      "description": "Professional creation of three-dimensional objects of any complexity. Clean topology, proper mesh, and full compatibility with game engines.",
+      "keywords": ["Blender 3D", "model development", "mesh", "modeling"]
+    },
+    "printing": {
+      "title": "3D Printing Models",
+      "subTitle": "3D Printing & STL Preparation",
+      "description": "Professional preparation and development of high-detail high-poly models for SLA/FDM printing. Creating watertight STL and OBJ files.",
+      "keywords": ["3D printing", "STL files", "high-poly", "prototyping"]
+    },
+    "pbr": {
+      "title": "PBR Texturing",
+      "subTitle": "PBR Texturing & Materials",
+      "description": "Creating realistic textures in Substance Painter. Configuring detailed procedural materials (roughness, metalness, normal maps).",
+      "keywords": ["texturing", "Substance Painter", "materials", "PBR"]
+    },
+    "assets": {
+      "title": "3D Asset Development",
+      "subTitle": "3D Asset Development",
+      "description": "Full-cycle development of digital assets for games, interactive apps, advertising, and production from scratch to suit your technical requirements.",
+      "keywords": ["model development", "3D assets", "custom 3D models", "CGI"]
+    },
+    "custom": {
+      "title": "Custom 3D Orders",
+      "subTitle": "Custom 3D Orders",
+      "description": "Flexible development of individualized 3D projects from drawings, photos, concepts, or technical tasks of any complexity.",
+      "keywords": ["orders", "custom 3D", "custom design", "specs"]
+    },
+    "freelance": {
+      "title": "Freelance Services",
+      "subTitle": "Freelance 3D Services",
+      "description": "Reliable freelance support for your projects. Fast communication, clear adherence to deadlines, and professional results on Upwork and Freelancehunt.",
+      "keywords": ["freelance", "3D freelancer", "orders", "remote"]
+    },
+    "design": {
+      "title": "Design & Conceptualization",
+      "subTitle": "Product Design & Concept Art",
+      "description": "Development of a unique visual style, product design, and concept art for physical manufacturing or digital presentation.",
+      "keywords": ["design", "concept art", "3D design", "visual style"]
+    },
+    "rendering": {
+      "title": "Visualization & Rendering",
+      "subTitle": "Photorealistic rendering",
+      "description": "Creating photorealistic images (CGI) using the V-Ray engine. Artistic lighting, camera, and premium materials setup.",
+      "keywords": ["visualization", "rendering", "V-Ray", "photorealism", "CGI"]
+    },
+    "animation": {
+      "title": "3D Animation",
+      "subTitle": "3D Motion & Animation",
+      "description": "Bringing your ideas to life: product 3D animation, turntables, mechanism work, and dynamic videos for advertising.",
+      "keywords": ["animation", "3D animation", "video", "motion", "presentation"]
+    },
+    "characters": {
+      "title": "Character Creation",
+      "subTitle": "Character Modeling & Sculpting",
+      "description": "Professional 3D sculpting and modeling of stylized or realistic characters, creatures, and game units.",
+      "keywords": ["character creation", "3D sculpting", "characters", "games"]
+    },
+    "architecture": {
+      "title": "Architectural Modeling",
+      "subTitle": "Architectural Visuals & Spaces",
+      "description": "Detailed three-dimensional modeling of buildings, interiors, exhibition halls, and exteriors with precise scale and proportion.",
+      "keywords": ["architectural modeling", "interior", "exterior", "proportions"]
+    },
+    "polycount": {
+      "title": "Low-Poly / High-Poly Models",
+      "subTitle": "Polycount Optimization",
+      "description": "Creating models of any mesh density: from detailed high-poly for renders to optimized low-poly models with baked maps.",
+      "keywords": ["low-poly", "high-poly", "optimization", "baking maps", "games"]
+    }
+  },
+  "meta": {
+    "title": "Blenderizm — 3D Modeling, Visualization, 3D Printing and Animation in Blender | 3D Artist Portfolio",
+    "description": "Blenderizm provides professional 3D modeling, PBR texturing, visualization, animation, and STL-ready assets for freelance projects, games, design, and 3D printing.",
+    "keywords": "Blenderizm, Blender 3D, 3D modeling, 3D printing, PBR texturing, CGI, V-Ray rendering, freelance 3D artist, 3D visualization, animation",
+    "ogTitle": "Blenderizm — 3D Modeling, Visualization, 3D Printing and Animation in Blender",
+    "ogDescription": "Blenderizm provides professional 3D modeling, PBR texturing, visualization, animation, and STL-ready assets for freelance projects, games, design, and 3D printing.",
+    "twitterTitle": "Blenderizm — 3D Modeling, Visualization, 3D Printing and Animation in Blender",
+    "twitterDescription": "Blenderizm provides professional 3D modeling, PBR texturing, visualization, animation, and STL-ready assets for freelance projects, games, design, and 3D printing."
+  }
+}

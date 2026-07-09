@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle, AlertTriangle, MessageSquare, Briefcase, Mail } from 'lucide-react';
+import { Send, CheckCircle, AlertTriangle } from 'lucide-react';
 import { ClientInquiry } from '../types';
+import { useTranslation } from '../i18n';
 
 interface ContactFormProps {
   isModal?: boolean;
@@ -8,6 +9,7 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({ isModal = false, onSuccessClose }: ContactFormProps) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,13 +29,13 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
 
     // Form Validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setError('Please fill out all required fields.');
+      setError(t.errors.required);
       setLoading(false);
       return;
     }
 
     if (!formData.email.includes('@')) {
-      setError('Please provide a valid email address.');
+      setError(t.errors.email);
       setLoading(false);
       return;
     }
@@ -83,9 +85,9 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
           <div className="w-16 h-16 rounded-full bg-printer-green/20 border border-printer-green flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(74,222,128,0.3)] animate-bounce">
             <CheckCircle className="w-8 h-8 text-printer-green" />
           </div>
-          <h3 className="text-2xl font-black text-on-surface font-sans">Inquiry Logged!</h3>
+          <h3 className="text-2xl font-black text-on-surface font-sans">{t.contact.successTitle}</h3>
           <p className="text-sm text-on-surface-variant max-w-md mx-auto mt-2 leading-relaxed">
-            Your technical project request has been stored. Blenderizm will respond with wireframes and scheduling specs inside 24 hours.
+            {t.contact.successDescription}
           </p>
 
           <div className="mt-8 flex gap-3">
@@ -93,14 +95,14 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
               onClick={() => setSuccess(false)}
               className="px-5 py-2.5 bg-white/5 border border-white/10 hover:bg-white/10 text-on-surface text-xs font-mono rounded-lg transition-all duration-300 cursor-pointer"
             >
-              Send Another Request
+              {t.contact.sendAnother}
             </button>
             {onSuccessClose && (
               <button
                 onClick={onSuccessClose}
                 className="px-5 py-2.5 bg-industrial-orange text-foreground text-xs font-mono font-bold rounded-lg transition-all duration-300 hover:bg-primary-accent cursor-pointer"
               >
-                Close Window
+                {t.contact.closeWindow}
               </button>
             )}
           </div>
@@ -108,9 +110,9 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-5 relative z-10">
           <div className="text-center mb-4">
-            <h3 className="text-2xl font-black text-on-surface font-sans">Launch a 3D Project</h3>
+            <h3 className="text-2xl font-black text-on-surface font-sans">{t.contact.title}</h3>
             <p className="text-xs text-on-surface-variant mt-1 max-w-sm mx-auto">
-              Ready to bring high-fidelity geometry or photorealistic renders to life? Define your specifications below.
+              {t.contact.description}
             </p>
           </div>
 
@@ -124,26 +126,26 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
           {/* Form Fields Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="contact-name" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Your Name *</label>
+              <label htmlFor="contact-name" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">{t.contact.nameLabel}</label>
               <input
                 id="contact-name"
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="Tony Stark"
+                placeholder={t.contact.placeholders.name}
                 className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-on-surface focus:outline-none focus:border-industrial-orange focus:ring-1 focus:ring-industrial-orange/30 placeholder-white/20 transition-all duration-300"
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="contact-email" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Email Address *</label>
+              <label htmlFor="contact-email" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">{t.contact.emailLabel}</label>
               <input
                 id="contact-email"
                 type="email"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="tony@starkindustries.com"
+                placeholder={t.contact.placeholders.email}
                 className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-on-surface focus:outline-none focus:border-industrial-orange focus:ring-1 focus:ring-industrial-orange/30 placeholder-white/20 transition-all duration-300"
               />
             </div>
@@ -151,44 +153,44 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="contact-type" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Project Category</label>
+              <label htmlFor="contact-type" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">{t.contact.projectLabel}</label>
               <select
                 id="contact-type"
                 value={formData.projectType}
                 onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                 className="bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-on-surface focus:outline-none focus:border-industrial-orange focus:ring-1 focus:ring-industrial-orange/30 transition-all duration-300 cursor-pointer"
               >
-                <option value="3D Modeling">3D Modeling (Watertight STL / Quads)</option>
-                <option value="Product Rendering">Product CGI / Rendering</option>
-                <option value="Substance Texturing">Texturing & Layer Design</option>
-                <option value="General Collaboration">General Collaboration</option>
+                <option value="3D Modeling">{t.contact.projectTypes.modeling}</option>
+                <option value="Product Rendering">{t.contact.projectTypes.rendering}</option>
+                <option value="Substance Texturing">{t.contact.projectTypes.texturing}</option>
+                <option value="General Collaboration">{t.contact.projectTypes.collaboration}</option>
               </select>
             </div>
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="contact-budget" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Allocated Budget</label>
+              <label htmlFor="contact-budget" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">{t.contact.budgetLabel}</label>
               <select
                 id="contact-budget"
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                 className="bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-on-surface focus:outline-none focus:border-industrial-orange focus:ring-1 focus:ring-industrial-orange/30 transition-all duration-300 cursor-pointer"
               >
-                <option value="Under $1,000">Under $1,000</option>
-                <option value="$1,000 - $3,000">$1,000 - $3,000 (Standard Asset)</option>
-                <option value="$3,000 - $8,000">$3,000 - $8,000 (Detailed Scene)</option>
-                <option value="$8,000+">$8,000+ (Full cinematic/commercial)</option>
+                <option value="Under $1,000">{t.contact.budgets.under1000}</option>
+                <option value="$1,000 - $3,000">{t.contact.budgets.standard}</option>
+                <option value="$3,000 - $8,000">{t.contact.budgets.detailed}</option>
+                <option value="$8,000+">{t.contact.budgets.cinematic}</option>
               </select>
             </div>
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="contact-message" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Scope of Work *</label>
+            <label htmlFor="contact-message" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">{t.contact.messageLabel}</label>
             <textarea
               id="contact-message"
               required
               rows={4}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              placeholder="Describe what model dimensions, reference images, file outputs (OBJ, FBX, STL, blend), or texture resolutions you require."
+              placeholder={t.contact.placeholders.message}
               className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-on-surface focus:outline-none focus:border-industrial-orange focus:ring-1 focus:ring-industrial-orange/30 placeholder-white/20 resize-none transition-all duration-300"
             ></textarea>
           </div>
@@ -203,7 +205,7 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
             ) : (
               <>
                 <Send className="w-4 h-4" />
-                Submit Technical Inquiry
+                {t.contact.submit}
               </>
             )}
           </button>
