@@ -124,8 +124,9 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
           {/* Form Fields Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1.5">
-              <label className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Your Name *</label>
+              <label htmlFor="contact-name" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Your Name *</label>
               <input
+                id="contact-name"
                 type="text"
                 required
                 value={formData.name}
@@ -135,8 +136,9 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Email Address *</label>
+              <label htmlFor="contact-email" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Email Address *</label>
               <input
+                id="contact-email"
                 type="email"
                 required
                 value={formData.email}
@@ -149,8 +151,9 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1.5">
-              <label className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Project Category</label>
+              <label htmlFor="contact-type" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Project Category</label>
               <select
+                id="contact-type"
                 value={formData.projectType}
                 onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                 className="bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-on-surface focus:outline-none focus:border-industrial-orange focus:ring-1 focus:ring-industrial-orange/30 transition-all duration-300 cursor-pointer"
@@ -162,8 +165,9 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
               </select>
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Allocated Budget</label>
+              <label htmlFor="contact-budget" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Allocated Budget</label>
               <select
+                id="contact-budget"
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                 className="bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-on-surface focus:outline-none focus:border-industrial-orange focus:ring-1 focus:ring-industrial-orange/30 transition-all duration-300 cursor-pointer"
@@ -177,8 +181,9 @@ export default function ContactForm({ isModal = false, onSuccessClose }: Contact
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Scope of Work *</label>
+            <label htmlFor="contact-message" className="font-mono text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Scope of Work *</label>
             <textarea
+              id="contact-message"
               required
               rows={4}
               value={formData.message}

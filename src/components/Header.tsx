@@ -37,13 +37,14 @@ export default function Header({ onContactClick, activeSection, onSectionChange 
 
   return (
     <>
-      <nav
-        className={`z-50 fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl rounded-full border border-white/10 shadow-2xl flex justify-between items-center px-6 md:px-8 py-3.5 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-black/85 backdrop-blur-xl border-white/15' 
-            : 'bg-black/40 backdrop-blur-md border-white/10'
-        }`}
-      >
+      <header>
+        <nav
+          className={`z-50 fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl rounded-full border border-white/10 shadow-2xl flex justify-between items-center px-6 md:px-8 py-3.5 transition-all duration-300 ${
+            scrolled 
+              ? 'bg-black/85 backdrop-blur-xl border-white/15' 
+              : 'bg-black/40 backdrop-blur-md border-white/10'
+          }`}
+        >
         {/* Logo */}
         <button 
           onClick={() => handleNavClick('portfolio')}
@@ -110,7 +111,8 @@ export default function Header({ onContactClick, activeSection, onSectionChange 
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Mobile Drawer */}
       {isOpen && (

@@ -62,7 +62,7 @@ export default function RenderSimulator() {
           {/* Background out-of-focus background */}
           <img
             src={selected.imageUrl}
-            alt="Simulation Canvas"
+            alt="Render simulator scene preview"
             className="w-full h-full object-cover transition-all duration-300"
             style={{ 
               ...calculateStyle(),

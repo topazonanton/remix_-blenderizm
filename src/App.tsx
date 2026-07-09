@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   Sparkles, 
   Cpu, 
@@ -9,8 +9,6 @@ import {
   MapPin, 
   Monitor, 
   Mail, 
-  ChevronRight, 
-  ArrowDown, 
   ExternalLink,
   Sliders,
   Boxes,
@@ -125,23 +123,6 @@ export default function App() {
   const [activeCategory, setActiveCategory] = useState<'all' | 'modeling' | 'texturing' | 'rendering'>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [contactModalOpen, setContactModalOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-
-  // Mouse tracking for interactive 3D parallax on Hero section
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const heroRef = useRef<HTMLElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setMousePos({ x, y });
-  };
-
-  const handleMouseLeave = () => {
-    setMousePos({ x: 0, y: 0 });
-  };
 
   // References for scroll spy
   const portfolioRef = useRef<HTMLElement>(null);
@@ -152,8 +133,6 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
-
       // Scroll Spy Logic
       const scrollPos = window.scrollY + 200;
       const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
@@ -175,32 +154,16 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Framer Motion scroll and spring-loaded mouse tracking values
-  const { scrollY: framerScrollY } = useScroll();
-  const scrollRotateY = useTransform(framerScrollY, [0, 1000], [0, 360]); // 360-degree spin on scroll
-  const scrollRotateZ = useTransform(framerScrollY, [0, 1000], [0, 15]);  // subtle roll tilt
-  const scrollScale = useTransform(framerScrollY, [0, 1000], [1, 0.75]);  // shrink slightly on scroll
-  const scrollOpacity = useTransform(framerScrollY, [0, 800], [1, 0.15]); // fade out slightly on scroll
-  const scrollYOffset = useTransform(framerScrollY, [0, 1000], [0, 180]);  // parallax offset
-
-  // Springs for silky smooth mouse hover tilt response
-  const springConfig = { damping: 25, stiffness: 90 };
-  const mouseTiltX = useSpring(0, springConfig);
-  const mouseTiltY = useSpring(0, springConfig);
-
-  useEffect(() => {
-    mouseTiltX.set(mousePos.y * -25); // vertical tilt
-    mouseTiltY.set(mousePos.x * 25);  // horizontal tilt
-  }, [mousePos, mouseTiltX, mouseTiltY]);
 
   const filteredProjects = activeCategory === 'all' 
     ? PROJECTS 
     : PROJECTS.filter(p => p.category === activeCategory);
 
   return (
-    <div className="bg-background text-on-surface font-sans antialiased selection:bg-industrial-orange selection:text-white overflow-x-hidden relative min-h-screen">
-      {/* Background Tech filament ambient vector effect */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(45deg,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(-45deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+<div className="bg-background text-on-surface font-sans antialiased selection:bg-industrial-orange selection:text-white overflow-x-hidden relative">
+        <main className="relative min-h-screen">
+        {/* Background Tech filament ambient vector effect */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(45deg,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(-45deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:32px_32px]"></div>
 
       {/* Scrolled animated intro (every 4th frame from /frames) */}
       <ScrollIntro />
@@ -396,7 +359,7 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
-              <motion.div
+              <motion.article
                 layout
                 key={project.id}
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -404,6 +367,15 @@ export default function App() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 onClick={() => setSelectedProject(project)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setSelectedProject(project);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`View details for ${project.title}`}
                 className="group relative h-80 rounded-2xl overflow-hidden border border-white/10 bg-surface-card cursor-pointer shadow-xl hover:border-white/20 hover:shadow-2xl transition-all duration-300"
               >
                 {/* Image */}
@@ -447,7 +419,7 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </AnimatePresence>
         </div>
@@ -720,7 +692,7 @@ export default function App() {
             {SEO_SERVICES.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div 
+                <article 
                   key={index}
                   className="glass-panel p-5 rounded-2xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] hover:border-industrial-orange/30 transition-all duration-300 flex flex-col justify-between gap-4 group hover:-translate-y-1"
                 >
@@ -751,7 +723,7 @@ export default function App() {
                       </span>
                     ))}
                   </div>
-                </div>
+                </article>
               );
             })}
           </div>
@@ -811,6 +783,8 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+        </main>
 
       {/* ALL MODALS */}
       <AnimatePresence>

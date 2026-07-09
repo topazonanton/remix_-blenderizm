@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const TOTAL_FRAMES = 240; // number of files in /frames
 const STEP = 2; // play every 2nd frame
-const MAX_DISPLAY_FRAMES = 80; // stop at this many stepped frames
+const MAX_DISPLAY_FRAMES = 55; // stop at this many stepped frames
 const PAD = (n: number) => String(n).padStart(5, '0');
 
 const frameModules = import.meta.glob('../../frames/*.jpg', { eager: true, as: 'url' }) as Record<string, string>;

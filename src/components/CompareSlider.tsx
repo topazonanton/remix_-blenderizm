@@ -98,7 +98,7 @@ export default function CompareSlider({
         <div className="absolute inset-0 w-full h-full">
           <img
             src={leftImage}
-            alt="Left Comparison"
+            alt={leftLabel}
             className="w-full h-full object-cover pointer-events-none"
           />
           <div className="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 rounded text-xs font-mono text-industrial-orange border border-white/5 uppercase tracking-wider">
@@ -126,7 +126,7 @@ export default function CompareSlider({
 
           <img
             src={rightImage}
-            alt="Right Comparison"
+            alt={rightLabel}
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             style={{ 
               filter: isBlenderViewport 

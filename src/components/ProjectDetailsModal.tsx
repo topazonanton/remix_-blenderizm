@@ -12,6 +12,9 @@ export default function ProjectDetailsModal({ project, onClose }: ProjectDetails
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
       {/* Container Card */}
       <div 
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-details-title"
         className="relative bg-surface-dark w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/10 shadow-2xl flex flex-col md:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
@@ -49,7 +52,7 @@ export default function ProjectDetailsModal({ project, onClose }: ProjectDetails
               </span>
             </div>
             
-            <h3 className="text-2xl font-black text-on-surface font-sans tracking-tight">
+            <h3 id="project-details-title" className="text-2xl font-black text-on-surface font-sans tracking-tight">
               {project.title}
             </h3>
 
